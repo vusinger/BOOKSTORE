@@ -1,17 +1,20 @@
 package com.bookstore.entity;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Table(name="Category")
 public class Category {
     private int categoryId;
     private String name;
 
+    public Category(String name) {
+        this.name = name;
+    }
+
     @Id
     @Column(name = "category_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public int getCategoryId() {
         return categoryId;
     }
